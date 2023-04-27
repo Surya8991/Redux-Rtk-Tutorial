@@ -18,7 +18,7 @@ const Font = () => {
             </p>
             <input
                 type="range"
-                min="10"
+                min="12"
                 max="30"
                 value={font}
                 onChange={(e) => dispatch(changeFont(e.target.value))} />
@@ -41,9 +41,9 @@ const Font = () => {
                     className={styles.btn}
                     onClick={() => dispatch(changeTextStyle('"Nova Mono", monospace'))}
                 >
-                   Nova Mono
+                    Nova Mono
                 </button>
-
+                <p>TextStyle: {text}</p>
             </div>
         </div>
     );

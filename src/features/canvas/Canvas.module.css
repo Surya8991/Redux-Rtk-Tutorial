@@ -16,7 +16,7 @@
   background: #ececec;
   padding: 1rem;
   border-radius: 10px;
-  height: 500px;
+  height: 550px;
   width: 300px;
 }
 
@@ -25,7 +25,7 @@
   padding: 1rem;
   background: #ececec;
   border-radius: 10px;
-  height: 500px;
+  height: 550px;
   width: 300px;
 }
 
@@ -42,4 +42,8 @@
 .btn {
   margin-left: 5px;
   cursor: pointer;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
 }
