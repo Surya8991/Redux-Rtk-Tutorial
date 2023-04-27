@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeColor, selectColor ,changeOpacity , selectOpacity } from "../canvas/canvaSlicer";
+import { changeColor, selectColor ,changeOpacity , selectOpacity ,paintColorAsync ,selectColorStatus} from "../canvas/canvaSlicer";
 
 import styles from './Canvas.module.css';
 import logo from '../../logo.svg';
@@ -8,7 +8,7 @@ const Color = () => {
   const color = useSelector(selectColor);
   const opacity=useSelector(selectOpacity)
   const dispatch = useDispatch();
-
+  const isLoading=useSelector(selectColorStatus)
   return(
     <div className={styles.colors}>
       <div className="canvas">
@@ -18,7 +18,7 @@ const Color = () => {
         style={{backgroundColor: color,opacity:opacity}}>
           <img src={logo} className="App-logo" alt="logo" style={{width: '100%', height: 'auto'}}/>
       </div>
-      <h2>Colors</h2>
+      <h2>Colors{isLoading ==="Loading"? "(Loading...)":null}</h2>
       <div className="buttons">
         <button 
           className={styles.btn} 
@@ -50,6 +50,11 @@ const Color = () => {
         value={opacity} 
         onChange={(e) => dispatch(changeOpacity(e.target.value))}/>
     <p>Opacity: {opacity}</p>
+    <button 
+          className={styles.btn}
+          onClick={(color) => dispatch(paintColorAsync())}>
+           Random Color
+        </button>
     </div>
     </div>
   )
